@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>主页面</title>
+    <!-- 引入 Bootstrap 样式 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        body {
+            background-color: #f8f9fa;  /* 背景色 */
+            font-family: 'Arial', sans-serif;
+        }
+        .container {
+            max-width: 600px;
+            margin-top: 50px;
+        }
+        h1 {
+            color: #343a40;  /* 深色标题 */
+            font-size: 2.5rem;
+            text-align: center;
+        }
+        .form-control {
+            border-radius: 25px;  /* 圆角输入框 */
+        }
+        .btn-primary {
+            background-color: #007bff;  /* 主色调按钮 */
+            border-color: #007bff;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+        .form-check-input:checked {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+        .collapse .card-body {
+            background-color: #e9ecef;
+            border-radius: 10px;
+        }
+        .btn-outline-secondary {
+            border-radius: 25px;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1 class="mb-4">情感捕手</h1>
+    <!-- 表单开始 -->
+    <form method="POST" action="{% url 'ResultPage' %}">
+        {% csrf_token %}
+        
+        <!-- 搜索框 -->
+        <div class="mb-4">
+            <input type="text" class="form-control" id="search_query" name="search_query" placeholder="请输入搜索内容" required>
+        </div>
+
+        <!-- 折叠勾选列表 1 -->
+        <div class="mb-3">
+            <button class="btn btn-outline-secondary w-100" type="button" data-bs-toggle="collapse" data-bs-target="#optionsList1" aria-expanded="false" aria-controls="optionsList1">
+                点击展开/时间
+            </button>
+            <div class="collapse mt-2" id="optionsList1">
+                <div class="card card-body">
+                    <!-- 勾选列表 1，默认勾选 -->
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" value="一个月内" id="option1" name="options" >
+                        <label class="form-check-label" for="option1">
+                            一个月内
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" value="三个月内" id="option2" name="options" >
+                        <label class="form-check-label" for="option2">
+                            三个月内
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" value="半年内" id="option2" name="options" >
+                        <label class="form-check-label" for="option2">
+                            半年内
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" value="一年内" id="option2" name="options" >
+                        <label class="form-check-label" for="option2">
+                            一年内
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" value="全部" id="option2" name="options" checked>
+                        <label class="form-check-label" for="option2">
+                            全部
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 折叠勾选列表 2 -->
+        <div class="mb-3">
+            <button class="btn btn-outline-secondary w-100" type="button" data-bs-toggle="collapse" data-bs-target="#optionsList2" aria-expanded="false" aria-controls="optionsList2">
+                点击展开/正向负向
+            </button>
+            <div class="collapse mt-2" id="optionsList2">
+                <div class="card card-body">
+                    <!-- 勾选列表 2，默认勾选 -->
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="正向" id="option3" name="options" checked>
+                        <label class="form-check-label" for="option3">
+                            正向
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="负向" id="option4" name="options" checked>
+                        <label class="form-check-label" for="option4">
+                            负向
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 折叠勾选列表 3 -->
+        <div class="mb-3">
+            <button class="btn btn-outline-secondary w-100" type="button" data-bs-toggle="collapse" data-bs-target="#optionsList3" aria-expanded="false" aria-controls="optionsList3">
+                点击展开/情感类型
+            </button>
+            <div class="collapse mt-2" id="optionsList3">
+                <div class="card card-body">
+                    <!-- 勾选列表 3，默认勾选 -->
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="愉快/幸福" id="option5" name="options" checked>
+                        <label class="form-check-label" for="option5">
+                            愉快/幸福
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="悲伤/痛苦" id="option6" name="options" checked>
+                        <label class="form-check-label" for="option6">
+                            悲伤/痛苦
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="愤怒/生气" id="option6" name="options" checked>
+                        <label class="form-check-label" for="option6">
+                            愤怒/生气
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="惊讶/震惊" id="option6" name="options" checked>
+                        <label class="form-check-label" for="option6">
+                            惊讶/震惊
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="恐惧/害怕" id="option6" name="options" checked>
+                        <label class="form-check-label" for="option6">
+                            恐惧/害怕
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="羞耻/羞愧" id="option6" name="options" checked>
+                        <label class="form-check-label" for="option6">
+                            羞耻/羞愧
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="平静/冷静" id="option6" name="options" checked>
+                        <label class="form-check-label" for="option6">
+                            平静/冷静
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="希望/期待" id="option6" name="options" checked>
+                        <label class="form-check-label" for="option6">
+                            希望/期待
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="厌恶/讨厌" id="option6" name="options" checked>
+                        <label class="form-check-label" for="option6">
+                            厌恶/讨厌
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="孤独/寂寞" id="option6" name="options" checked>
+                        <label class="form-check-label" for="option6">
+                            孤独/寂寞
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="好奇/兴趣" id="option6" name="options" checked>
+                        <label class="form-check-label" for="option6">
+                            好奇/兴趣
+                        </label>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- 提交按钮 -->
+        <button type="submit" class="btn btn-primary w-100">搜索</button>
+
+
+    </form>
+</div>
+</body>
+</html>
