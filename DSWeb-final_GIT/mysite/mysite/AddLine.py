@@ -16,7 +16,7 @@ def EmotionAdder(name):
 
     csv_path = "../test/"+name+"_raw.csv"
     temp_path = "../test/"+name+"_tmp.csv"
-    save_path = "../test/"+name+"_result.csv"
+    save_path = "../../../static/csvs/"+name+"_result.csv"
     print("开始情感解析...")
     final_CNN(csv_path=csv_path, tag="评论内容", save_path=temp_path)
     final_CNN_with_emotion(csv_path=temp_path, tag="评论内容", save_path=save_path)
