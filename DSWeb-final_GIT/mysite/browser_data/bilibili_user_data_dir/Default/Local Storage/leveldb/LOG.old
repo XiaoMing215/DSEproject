@@ -1,5 +1,5 @@
-2025/01/05-02:06:39.519 6870 Reusing MANIFEST D:\MyCode\VScode\DSWeb-final\mysite\browser_data\bilibili_user_data_dir\Default\Local Storage\leveldb/MANIFEST-000001
-2025/01/05-02:06:39.521 6870 Recovering log #110
-2025/01/05-02:06:39.521 6870 Level-0 table #113: started
-2025/01/05-02:06:39.523 6870 Level-0 table #113: 18243 bytes OK
-2025/01/05-02:06:39.525 6870 Delete type=0 #110
+2025/01/05-14:18:25.889 c93c Reusing MANIFEST D:\MyCode\VScode\DSWeb-final\mysite\browser_data\bilibili_user_data_dir\Default\Local Storage\leveldb/MANIFEST-000001
+2025/01/05-14:18:25.891 c93c Recovering log #123
+2025/01/05-14:18:25.891 c93c Level-0 table #126: started
+2025/01/05-14:18:25.894 c93c Level-0 table #126: 18250 bytes OK
+2025/01/05-14:18:25.896 c93c Delete type=0 #123

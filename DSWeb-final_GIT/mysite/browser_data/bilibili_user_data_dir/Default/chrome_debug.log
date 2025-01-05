@@ -1,3 +1,3 @@
-[0105/021133.101:INFO:CONSOLE(5)] "document.domain mutation is ignored because the surrounding agent cluster is origin-keyed.", source: https://s1.hdslb.com/bfs/static/laputa-home/client/assets/vendor.d7072215.js (5)
-[0105/021133.423:INFO:CONSOLE(2)] "%c%s line-height: 30px; color: #FF6699 bili-fe-mirror:1.6.30", source: https://s1.hdslb.com/bfs/seed/jinkela/short/b-mirror/biliMirror.umd.mini.js (2)
-[0105/021133.442:INFO:CONSOLE(201)] "白屏检测是否正常 [object Object]", source: https://www.bilibili.com/ (201)
+[0105/143510.670:INFO:CONSOLE(5)] "document.domain mutation is ignored because the surrounding agent cluster is origin-keyed.", source: https://s1.hdslb.com/bfs/static/laputa-home/client/assets/vendor.d7072215.js (5)
+[0105/143511.301:INFO:CONSOLE(2)] "%c%s line-height: 30px; color: #FF6699 bili-fe-mirror:1.6.30", source: https://s1.hdslb.com/bfs/seed/jinkela/short/b-mirror/biliMirror.umd.mini.js (2)
+[0105/143511.360:INFO:CONSOLE(201)] "白屏检测是否正常 [object Object]", source: https://www.bilibili.com/ (201)

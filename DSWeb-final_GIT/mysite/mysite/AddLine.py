@@ -6,7 +6,7 @@ import os
 def EmotionAdder(name):
     #
     original_direct = os.getcwd()
-    new_direct = os.getcwd()+"\\emotion_catcher_CPU\\emotion_catcher\\model"
+    new_direct = os.getcwd()+"/emotion_catcher_CPU/emotion_catcher/model"
     try:
         # 更改当前工作目录
         os.chdir(new_direct)

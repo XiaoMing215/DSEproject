@@ -3,6 +3,7 @@ from django.shortcuts import render
 from .Process_2 import Crawer_new
 from .AddLine import EmotionAdder
 from .printtable_new import PicGenerate
+from .Ciyuntu import GenerateWordCloud
 import time
 import csv
 import concurrent.futures
@@ -17,20 +18,22 @@ async def ResultPage(request):
     if request.method == "POST":
         search_query = request.POST.get('search_query', '')  # 获取文本框内容
         options = request.POST.getlist('options')           # 获取勾选列表内容
-        time_map={"全部":0,"一个月前":30,"三个月前":90,"半年前":183,"一年前":365}
+        time_map={"全部":0,"一个月内":30,"三个月内":90,"半年内":183,"一年内":365}
         day_before = time_map[options[0]]
         #以下是需要更改的部分
-        # await(Crawer_new(search_query,DAY_BEFORE=day_before))
+        await(Crawer_new(search_query,DAY_BEFORE=day_before))
         print("next...")
-        # EmotionAdder(search_query)
+        EmotionAdder(search_query)
 
         result_path = "./static/csvs/"+search_query+"_result.csv"
         picture_path = "./static/images/"+search_query+"_result.png"
         gender_path = "./static/images/"+search_query+"_result2.png"
+        Cloud_path = "./static/images/"+search_query+"_result3.png"
         selected_emotions = set(options[1:])
-        # print(selected_emotions)
+        print(selected_emotions)
 
         PicGenerate(result_path,selected_emotions,picture_path,gender_path)
+        GenerateWordCloud(result_path,Cloud_path)
         
         Picture_Name = search_query+"_result.png"
         Gender_Name = search_query+"_result2.png"
@@ -47,5 +50,6 @@ async def ResultPage(request):
         'options': options,
         'Picture_Name': Picture_Name, #如果有多余的返回值就这样返回
         'Gender_Name': Gender_Name,
+        'Cloud_Name': Cloud_Name,
         'Result_File':Result_File_Path,
     })
